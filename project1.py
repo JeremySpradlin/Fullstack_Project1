@@ -17,7 +17,7 @@
 #Imports
 import psycopg2
 
-query1 = "select title from articles"
+query1 = "select title, id from articles"
 
 #FUNCTION: Takes a query string, connects to the database, runs the query string,
 #and returns the results
@@ -29,6 +29,16 @@ def run_query(q_str):
     db.close
     return r
 
+#FUNCTION: This function will run the query results through a loop to print the
+#output.
+def print_results(results):
+    for i in results:
+        print(i)
 
+#Fetch restuls from the query
 results = run_query(query1)
-print(results)
+
+
+
+print_results(results)
+#print(results)

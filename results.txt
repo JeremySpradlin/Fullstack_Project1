@@ -1,0 +1,8 @@
+('Bad things gone, say good people', 23)
+('Balloon goons doomed', 24)
+('Bears love berries, alleges bear', 25)
+('Candidate is jerk, alleges rival', 26)
+("Goats eat Google's lawn", 27)
+('Media obsessed with bears', 28)
+('Trouble for troubled troublemakers', 30)
+('There are a lot of bears', 29)
