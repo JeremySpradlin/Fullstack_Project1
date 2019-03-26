@@ -19,6 +19,7 @@ import psycopg2
 
 query1 = "select title, id from articles"
 
+
 #FUNCTION: Takes a query string, connects to the database, runs the query string,
 #and returns the results
 def run_query(q_str):
@@ -35,10 +36,29 @@ def print_results(results):
     for i in results:
         print(i)
 
-#Fetch restuls from the query
-results = run_query(query1)
+#FUNCTION: This function will print out the results for the first question, "What
+#are the most popular 3 articles of all time?"
+def most_pop_articles(q_str):
+    results = run_query(q_str)
+    print("What are the most popular 3 articles of all time?\n")
+    print_results(results)
 
+#FUNCTION: This function will print out the results for the second question, "Who
+#are the most popular authors of all time?"
+def pop_authors(q_str):
+    results = run_query(q_str)
+    print("Who are the most popular authors of all time\n")
+    print_results(results)
 
+#Function: This function will print out the results for the third question, "On
+#which day did more than 1% of requests lead to errors?"
+def high_error_day(q_str):
+    results = run_query(q_str)
+    print("On which day did more than 1% of requests lead to errors?\n")
+    print_results(results)
 
-print_results(results)
-#print(results)
+most_pop_articles(query1)
+print("\n")
+pop_authors(query1)
+print("\n")
+high_error_day(query1)
