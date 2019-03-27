@@ -17,7 +17,7 @@
 #Imports
 import psycopg2
 
-query1 = "select title, id from articles"
+query1 = "select path, count(*) as num from log where path != '/' group by path order by num desc limit 3;"
 
 
 #FUNCTION: Takes a query string, connects to the database, runs the query string,
