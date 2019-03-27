@@ -34,15 +34,15 @@ def run_query(q_str):
 #FUNCTION: This function will run the query results through a loop to print the
 #output.
 def print_results(results):
-    print("Title                            Views")
     for i in results:
-        print(i[0] + " " + str(i[1]))
+        print("{0:32} {1:<10}".format(i[0], i[1]))
 
 #FUNCTION: This function will print out the results for the first question, "What
 #are the most popular 3 articles of all time?"
 def most_pop_articles(q_str):
     results = run_query(q_str)
     print("What are the most popular 3 articles of all time?\n")
+    print("{0:32} {1:10}".format("Title", "Views"))
     print_results(results)
 
 #FUNCTION: This function will print out the results for the second question, "Who
@@ -50,6 +50,7 @@ def most_pop_articles(q_str):
 def pop_authors(q_str):
     results = run_query(q_str)
     print("Who are the most popular authors of all time\n")
+    print("{0:32} {1:10}".format("Authors", "Views"))
     print_results(results)
 
 #Function: This function will print out the results for the third question, "On
