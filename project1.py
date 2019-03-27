@@ -17,7 +17,8 @@
 #Imports
 import psycopg2
 
-query1 = "select path, count(*) as num from log where path != '/' group by path order by num desc limit 3;"
+query1 = "select title, count(*) as num from articles, log where path like concat('%', slug) group by title order by num desc limit 3;"
+query2 = "select name, count(*) as num from articles, authors, log where path like concat('%', slug) and articles.author = authors.id group by name order by num desc;"
 
 
 #FUNCTION: Takes a query string, connects to the database, runs the query string,
@@ -33,8 +34,9 @@ def run_query(q_str):
 #FUNCTION: This function will run the query results through a loop to print the
 #output.
 def print_results(results):
+    print("Title                            Views")
     for i in results:
-        print(i)
+        print(i[0] + " " + str(i[1]))
 
 #FUNCTION: This function will print out the results for the first question, "What
 #are the most popular 3 articles of all time?"
@@ -59,6 +61,6 @@ def high_error_day(q_str):
 
 most_pop_articles(query1)
 print("\n")
-pop_authors(query1)
+pop_authors(query2)
 print("\n")
 high_error_day(query1)
