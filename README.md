@@ -14,6 +14,10 @@ database and run queries to answer the following questions:
 The script can be run by navigating to the directory containing the script
 and running the script by typing `python project1.py` and hitting `ENTER`
 
+The script works by storing three SQL queries designed to return the answers
+to the 3 listed questions.  It then will run each query, and then format and
+output the query results into a readable format easy for users to understand.
+
 ## Views added to the source Database
 The following views were added to the SQL database to help facilitate
 search queries:
