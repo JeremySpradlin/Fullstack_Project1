@@ -1,23 +1,23 @@
 #!/usr/bin/env python2
-#
-#
-#This application will utilize the python module psycopg2 to connect to a
-#databse (news) and perform queries to answer the following questions:
-#
-#1) What are the most popular three articles of all time?
-#
-#2) Who are the most popular article authors of all time?
-#
-#3) On which days did more than 1% of requests lead to errors?
-#
-#
-#This application will output the answers to the question to the terminal in
-#a readable text format.
+'''
+This application will utilize the python module psycopg2 to connect to a
+databse (news) and perform queries to answer the following questions:
 
-#Imports
+1) What are the most popular three articles of all time?
+
+2) Who are the most popular article authors of all time?
+
+3) On which days did more than 1% of requests lead to errors?
+
+
+This application will output the answers to the question to the terminal in
+a readable text format.
+'''
+
+# Imports
 import psycopg2
 
-query1 ='''
+query1 = '''
     select title, count(*) as num
     from articles, log
     where path like concat('%', slug)
@@ -29,10 +29,16 @@ query2 = '''
     WHERE path like concat('%', slug) and articles.author = authors.id
     GROUP BY name ORDER BY num desc;
 '''
+query3 = '''
+    SELECT error_date, error_rate
+    FROM error_rate
+    WHERE error_rate > .01
+    ORDER BY error_date desc;
+'''
 
 
-#FUNCTION: Takes a query string, connects to the database, runs the query string,
-#and returns the results
+# FUNCTION: Takes a query string, connects to the database, runs the query
+# string, and returns the results
 def run_query(q_str):
     db = psycopg2.connect("dbname = news")
     c = db.cursor()
@@ -41,37 +47,43 @@ def run_query(q_str):
     db.close
     return r
 
-#FUNCTION: This function will run the query results through a loop to print the
-#output.
+
+# FUNCTION: This function will run the query results through a loop to print
+# the output.
 def print_results(results):
     for i in results:
-        print("{0:32} {1:<10}".format(i[0], i[1]))
+        print("{0:32} {1:<10}".format(str(i[0]), str(i[1])))
 
-#FUNCTION: This function will print out the results for the first question, "What
-#are the most popular 3 articles of all time?"
+
+# FUNCTION: This function will print out the results for the first question,
+# "What are the most popular 3 articles of all time?"
 def most_pop_articles(q_str):
     results = run_query(q_str)
     print("What are the most popular 3 articles of all time?\n")
     print("{0:32} {1:10}".format("Title", "Views"))
     print_results(results)
 
-#FUNCTION: This function will print out the results for the second question, "Who
-#are the most popular authors of all time?"
+
+# FUNCTION: This function will print out the results for the second
+# question, "Who are the most popular authors of all time?"
 def pop_authors(q_str):
     results = run_query(q_str)
-    print("Who are the most popular authors of all time\n")
+    print("Who are the most popular authors of all time?\n")
     print("{0:32} {1:10}".format("Authors", "Views"))
     print_results(results)
 
-#Function: This function will print out the results for the third question, "On
-#which day did more than 1% of requests lead to errors?"
+
+# FUNCTION: This function will print out the results for the third
+# question, "On which day did more than 1% of requests lead to errors?"
 def high_error_day(q_str):
     results = run_query(q_str)
     print("On which day did more than 1% of requests lead to errors?\n")
+    print("{0:32} {1:10}".format("Date", "Error Rate"))
     print_results(results)
+
 
 most_pop_articles(query1)
 print("\n")
 pop_authors(query2)
 print("\n")
-high_error_day(query1)
+high_error_day(query3)
