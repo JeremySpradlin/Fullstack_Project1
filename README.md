@@ -38,6 +38,5 @@ SELECT date(time) as error_date, count(*) as error_count
 ```
 SELECT error_date, error_count::float/request_count::float AS error_rate
     FROM errors_per_day, requests_per_day
-    WHERE error_date = request_date
-    ORDER BY error_rate desc;
+    WHERE error_date = request_date;
 ```
