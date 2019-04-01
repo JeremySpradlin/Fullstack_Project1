@@ -20,7 +20,7 @@ Then, download and unzip this file: [FSND-Virtual-Machine.zip](https://s3.amazon
 *FSND-Virtual-Machine* that contains the virtual machine.
 
 As an alternative method, you can also use [GitHub](https://www.github.com "GitHub") to
-fork and clone [this repository](https://github.com/udacity/fullstack-nanodegree-vm "This Repository")
+fork and clone [this repository](https://github.com/udacity/fullstack-nanodegree-vm "This Repository").
 
 Once the VM is downloaded, `cd` into the VM directory, and run the following
 command:
@@ -49,8 +49,8 @@ To add the custom views, run the command `psql news` to access the database and
 copy and paste the below views into the prompt and press `ENTER`.
 
 ### Running the script
-To run the reporting script, ssh into the VM using `vagrant ssh` and run the
-following:
+To run the reporting script, ssh into the VM using `vagrant ssh`, `cd` to the
+folder containing the project, and run the following:
 ```
 python project1.py
 ```
