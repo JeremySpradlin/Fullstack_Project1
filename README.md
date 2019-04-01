@@ -12,15 +12,15 @@ database and run queries to answer the following questions:
 
 ## Installation
 ### Prerequisites
-This script requires installing both (https://www.virtualbox.org "Virtual Box")
-and (https://www.vagrantup.com "Vagrant").  Download and install both of these
+This script requires installing both [Virtual Box](https://www.virtualbox.org "Virtual Box")
+and [Vagrant](https://www.vagrantup.com "Vagrant").  Download and install both of these
 applications before continuing.  
 
-Then, download and unzip this file: (https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip "FSND-Virtual-Machine.zip").  This will give you a folder called
+Then, download and unzip this file: [FSND-Virtual-Machine.zip](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/April/5acfbfa3_fsnd-virtual-machine/fsnd-virtual-machine.zip "FSND-Virtual-Machine.zip").  This will give you a folder called
 *FSND-Virtual-Machine* that contains the virtual machine.
 
-As an alternative method, you can also use (https://www.github.com "GitHub") to
-fork and clone (https://github.com/udacity/fullstack-nanodegree-vm "This Repository")
+As an alternative method, you can also use [GitHub](https://www.github.com "GitHub") to
+fork and clone [this repository](https://github.com/udacity/fullstack-nanodegree-vm "This Repository")
 
 Once the VM is downloaded, `cd` into the VM directory, and run the following
 command:
@@ -37,7 +37,7 @@ The folder `/vagrant` on the VM is shared with the same folder on your machine,
 allowing you to access and pass files between your host machine and the VM.
 
 ### Conifgure the Database
-Download and unzip (https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip "This file").
+Download and unzip [this file](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip "This file").
 Copy the file `newsdata.sql` into your `/vagrant` directory.
 
 `cd` into the `vagrant` directory and run the following command:
