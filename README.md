@@ -72,6 +72,7 @@ CREATE VIEW requests_per_day AS
 CREATE VIEW errors_per_day AS
     SELECT date(time) as error_date, count(*) as error_count
     FROM log
+    WHERE status != '200 OK'
     GROUP BY error_date;
 ```
 ### error_rate
